@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2021 The LineageOS Project
-#
+# SPDX-FileCopyrightText: The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -20,6 +19,8 @@ TARGET_KERNEL_CONFIG += vendor/renoir_QGKI.config
 
 # Kernel modules
 BOOT_KERNEL_MODULES := \
+    adsp_loader_dlkm.ko \
+    apr_dlkm.ko \
     focaltech_touch.ko \
     adsp_loader_dlkm.ko \
     apr_dlkm.ko \

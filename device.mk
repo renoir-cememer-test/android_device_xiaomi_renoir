@@ -1,6 +1,5 @@
 #
-# Copyright (C) 2021 The LineageOS Project
-#
+# SPDX-FileCopyrightText: The LineageOS Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -23,9 +22,15 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/nfc/libnfc-nxp_RF.conf:$(TARGET_COPY_OUT_VENDOR)/etc/libnfc-nxp_RF.conf
 
 # Overlays
-DEVICE_PACKAGE_OVERLAYS += \
-    $(LOCAL_PATH)/overlay \
-    $(LOCAL_PATH)/overlay-lineage
+PRODUCT_PACKAGES += \
+    ApertureOverlayRenoir
+
+PRODUCT_PACKAGES += \
+    FrameworkOverlayRenoir \
+    SettingsOverlayRenoir \
+    SettingsProviderOverlayRenoir \
+    SystemUIOverlayRenoir \
+    WifiOverlayRenoir
 
 # SKU specific RROs
 PRODUCT_PACKAGES += \
@@ -40,10 +45,6 @@ PRODUCT_SOONG_NAMESPACES += \
 # Vibrator
 $(call soong_config_set,qti_vibrator,effect_lib,libqtivibratoreffect.xiaomi)
 $(call soong_config_set_bool,qti_vibrator,use_effect_stream,true)
-
-# WiFi
-PRODUCT_PACKAGES += \
-    TargetWifiOverlay
 
 # Call the proprietary setup
 $(call inherit-product, vendor/xiaomi/renoir/renoir-vendor.mk)
